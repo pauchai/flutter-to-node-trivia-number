@@ -1,6 +1,9 @@
+//const defineProperty = Object.defineProperty;
+//Object.defineProperty = (o, p, c) => defineProperty(o, p, Object.assign({}, c ?? {}, { configurable: true }));
+
 module.exports = {
     "roots": [
-      "<rootDir>/src"
+      "<rootDir>/src",
     ],
     "testMatch": [
       "**/__tests__/**/*.+(ts|tsx|js)",
@@ -8,5 +11,15 @@ module.exports = {
     ],
     "transform": {
       "^.+\\.(ts|tsx)$": "ts-jest"
+    },    
+
+    "globals": {
+      "ts-jest": {
+        "compiler": "ttypescript"
+      }
     },
+    "setupFiles": [
+      "<rootDir>/config.ts"
+    ]
+    
   }
